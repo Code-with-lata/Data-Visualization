@@ -1,0 +1,1 @@
+# Write a Python program that opens a file and handle FileNotFoundError exception if file does not exist

@@ -1,3 +1,5 @@
+# Write a function in Python to count and display the total number of words in a text file "ABC.txt"
+
 def count_and_display_words(filename):
     try:
         with open(filename, 'r') as file:

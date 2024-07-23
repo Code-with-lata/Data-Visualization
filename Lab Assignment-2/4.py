@@ -1,0 +1,1 @@
+# Write a Python program that prompts the user to input two number and raises a TypeError exception if the input are not  numerical

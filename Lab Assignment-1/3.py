@@ -1,3 +1,5 @@
+# Write a function in Python to count uppercase character in a text file "ABC.txt"
+
 def count_uppercase_characters(filename):
     try:
         with open(filename, 'r') as file:
