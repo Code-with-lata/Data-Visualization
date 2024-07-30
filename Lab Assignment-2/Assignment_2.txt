@@ -1,0 +1,101 @@
+# Write a Python program to handle a ZeroDivisionError exception when dividing a number by zero.
+
+print("Line 1")
+print("Line 2")
+
+try:
+    print(100/0)    
+    
+except ZeroDivisionError as e:
+    print(e)
+        
+print("Line 3")
+print("Line 4")
+
+----------------------------
+
+Output:
+Line 1
+Line 2
+division by zero
+Line 3
+Line 4
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+# Write a Python program that prompts the user to input a integer and raise a valueError exception if the input is not a valid integer.
+
+def get_integer():
+    try:
+        user_input = input("Please enter an integer: ")
+        user_integer = int(user_input)
+        print(f"You entered the integer: {user_integer}")
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
+
+# Run the function to prompt the user
+get_integer()
+
+-------------------------
+
+Output:
+Please enter an integer: 67
+You entered the integer: 67
+
+Please enter an integer: fg
+Invalid input. Please enter a valid integer.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+# Write a Python program that opens a file and handle FileNotFoundError exception if file does not exist.
+
+def read_file(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            content = file.read()
+            print(content)
+    except FileNotFoundError:
+        print(f"Error: The file '{file_path}' does not exist.")
+
+# Example usage
+file_path = 'example.txt'
+read_file(file_path)
+
+--------------------------------
+
+Output:
+Error: The file 'example.txt' does not exist.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+# Write a Python program that prompts the user to input two number and raises a TypeError exception if the input are not  numerical
+
+def get_number(prompt):
+    user_input = input(prompt)
+    if not user_input.isdigit():
+        raise TypeError(f"Error: '{user_input}' is not a numerical input.")
+    return int(user_input)
+
+def main():
+    try:
+        num1 = get_number("Enter thje first number: ")
+        num2 = get_number("Enter the second number: ")
+        print(f"The numbers you entered are {num1} and {num2}.")
+    except TypeError as e:
+        print(e)
+
+if __name__ == "__main__":
+    main()
+
+-------------------------
+
+Output:
+1.Enter the first number: 67
+  Enter the second number: 98
+  The numbers you entered are 67 and 98.
+
+2.Enter the first number: uk
+  Error: 'uk' is not a numerical input.
+
+
+
