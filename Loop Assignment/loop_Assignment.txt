@@ -1,0 +1,391 @@
+# 1.Python program to check leap year
+
+def is_leap_year(year):
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        return True
+    else:
+        return False
+
+year = int(input("Enter a year: "))
+if is_leap_year(year):
+    print(f"{year} is a leap year")
+else:
+    print(f"{year} is not a leap year")
+
+-----------------------------
+
+Output:
+Enter a year: 20
+20 is a leap year
+
+Enter a year: 21
+21 is not a leap year
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 2.Input: Get three numbers from user
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
+num3 = int(input("Enter the third number: "))
+
+# Find the largest number
+if num1 >= num2 and num1 >= num3:
+    largest = num1
+elif num2 >= num1 and num2 >= num3:
+    largest = num2
+else:
+    largest = num3
+
+# Display the largest number
+print(f"The largest number among {num1}, {num2}, and {num3} is : {largest}.")
+
+----------------------------
+
+Output:
+Enter the first number: 45
+Enter the second number: 56
+Enter the third number: 34
+The largest number among 45, 56, and 34 is : 56
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 3.Python Program to Check if a Number is Positive, Negative or 0
+
+# Input: Get a number from user
+number = int(input("Enter a number: "))
+
+# Check if the number is positive, negative or zero
+if number > 0:
+    print(f"{number} is a positive number.")
+elif number < 0:
+    print(f"{number} is a negative number.")
+else:
+    print(f"The number is zero.")
+
+----------------------------
+
+Output:
+Enter a number: 4
+4 is a positive number.
+
+Enter a number: -6
+-6 is a negative number.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 4.A toy vendor supplies three types of toys: Battery Based Toys, Key-based
+# Toys, and Electrical Charging Based Toys. The vendor gives a discount of
+# 10% on orders for battery-based toys if the order is for more than Rs. 1000.
+# On orders of more than Rs. 100 for key-based toys, a discount of 5% is
+# given, and a discount of 10% is given on orders for electrical charging based
+# toys of value more than Rs. 500. Assume that the numeric codes 1,2 and 3
+# are used for battery based toys, key-based toys, and electrical charging based
+# toys respectively. Write a program that reads the product code and the order
+# amount and prints out the net amount that the customer is required to pay
+# after the discount.
+
+product_code = int(input("Enter the product code (1 for Battery Based Toys, 2 for Key-based Toys, 3 for Electrical Charging Based Toys): "))
+order_amount = float(input("Enter the order amount: "))
+
+# Calculate the discount and net amount
+if product_code == 1:
+    # Battery Based Toys
+    if order_amount > 1000:
+        discount = 0.10 * order_amount
+    else:
+        discount = 0.0
+elif product_code == 2:
+    # Key-based Toys
+    if order_amount > 100:
+        discount = 0.05 * order_amount
+    else:
+        discount = 0.0
+elif product_code == 3:
+    # Electrical Charging Based Toys
+    if order_amount > 500:
+        discount = 0.10 * order_amount
+    else:
+        discount = 0.0
+else:
+    print("Invalid product code.")
+    discount = 0.0
+
+# Calculate the net amount to be paid
+net_amount = order_amount - discount
+
+# Display the net amount
+print(f"The net amount to be paid after the discount is: Rs. {net_amount:.2f}")
+
+------------------------
+
+Output:
+Enter the product code (1 for Battery Based Toys, 2 for Key-based Toys, 3 for Electrical Charging Based Toys): 1
+Enter the order amount: 1200
+The net amount to be paid after the discount is: Rs. 1080.00
+
+Enter the product code (1 for Battery Based Toys, 2 for Key-based Toys, 3 for Electrical Charging Based Toys): 2
+Enter the order amount: 150
+The net amount to be paid after the discount is: Rs. 142.50
+
+Enter the product code (1 for Battery Based Toys, 2 for Key-based Toys, 3 for Electrical Charging Based Toys): 3
+Enter the order amount: 600
+The net amount to be paid after the discount is: Rs. 540.00
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 5. A transport company charges the fare according to following table:
+# Distance Charges
+# 1-50 8 Rs./Km
+# 51-100 10 Rs./Km
+# > 100 12 Rs/Km
+
+distance = float(input("Enter the distance traveled in kilometers: "))
+
+# Calculate the fare based on the distance
+if distance <= 50:
+    fare = distance * 8
+elif distance <= 100:
+    fare = 50 * 8 + (distance - 50) * 10
+else:
+    fare = 50 * 8 + 50 * 10 + (distance - 100) * 12
+
+# Display the fare
+print(f"The fare for traveling {distance} kilometers is: Rs. {fare:.2f}")
+
+-------------------------------
+
+Output:
+Enter the distance traveled in kilometers: 30
+The fare for traveling 30.0 kilometers is: Rs. 240.00
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#6. Write a python program to reverse a number using a while loop.
+
+number = int(input("Enter an integer number: "))
+reversed_number = 0
+original_number = number
+
+while number > 0:
+    digit = number % 10
+    reversed_number = reversed_number * 10 + digit
+    number = number // 10
+
+print(f"The reversed number of {original_number} is : {reversed_number}")
+
+---------------------------
+
+Output:
+Enter an integer number: 456
+The reversed number of 456 is : 654
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 7. Write a python program to check whether a number is palindrome or not?
+
+number = int(input("Enter an integer number: "))
+original_number = number
+reversed_number = 0
+
+while number > 0:
+    digit = number % 10  
+    reversed_number = reversed_number * 10 + digit 
+    number = number // 10  
+    
+if original_number == reversed_number:
+    print(f"{original_number} is a palindrome.")
+else:
+    print(f"{original_number} is not a palindrome.")
+
+----------------------------
+Output:
+Enter an integer number: 567
+567 is not a palindrome.
+
+Enter an integer number: 4444
+4444 is a palindrome.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 8.Write a python program finding the factorial of a given number using a while loop.
+number = int(input("Enter a non-negative integer: "))
+
+factorial = 1
+original_number = number
+
+while number > 1:
+    factorial *= number
+    number -= 1
+
+print(f"The factorial of {original_number} is {factorial} ")
+
+--------------------------
+
+Output:
+Enter a non-negative integer: 5
+The factorial of 5 is 120
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+# 9. Accept numbers using input() function until the user enters 0. If user
+# input 0 then break the while loop and display the sum of all the numbers.
+
+total_sum = 0
+
+while True:
+    number = float(input("Enter a number (enter 0 to stop): "))
+    
+    if number == 0:
+        break
+    
+    total_sum += number
+
+print(f"The sum of all the numbers is: {total_sum:.2f}")
+
+------------------------------
+
+Output:
+Enter a number (enter 0 to stop): 3
+Enter a number (enter 0 to stop): 1.5
+Enter a number (enter 0 to stop): 2.5
+Enter a number (enter 0 to stop): 0
+The sum of all the numbers is: 7.00
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+# Print the first 10 natural numbers
+for i in range(1, 11):
+    print(i)
+
+-------------------------------
+
+Output:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+# 11.Python program to check if the given string is a palindrome
+
+string = input("Enter a string: ")
+normalized_string = string.lower()
+
+import re
+normalized_string = re.sub(r'[^a-z0-9]', '', normalized_string)
+
+if normalized_string == normalized_string[::-1]:
+    print(f'"{string}" is a palindrome.')
+else:
+    print(f'"{string}" is not a palindrome.')
+
+----------------------------------
+
+Output:
+Enter a string: A man, a plan, a canal, Panama
+"A man, a plan, a canal, Panama" is a palindrome.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+# 12. Python program to check if a given number is an Armstrong number
+number = int(input("Enter an integer number: "))
+
+original_number = number
+num_digits = len(str(number))
+sum_of_powers = 0
+
+while number > 0:
+    digit = number % 10
+    sum_of_powers += digit ** num_digits
+    number //= 10
+
+if sum_of_powers == original_number:
+    print(f"{original_number} is an Armstrong number.")
+else:
+    print(f"{original_number} is not an Armstrong number.")
+
+------------------------------
+
+Output:
+Enter an integer number: 153
+153 is an Armstrong number.
+
+Enter an integer number: 123
+123 is not an Armstrong number.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+# 13.python program to get the Fibonacci series between 0 to 50
+
+a, b = 0, 1
+fibonacci_series = []
+
+while a <= 50:
+    fibonacci_series.append(a)
+    a, b = b, a + b
+
+print("Fibonacci series between 0 and 50:")
+print(fibonacci_series)
+
+------------------------
+Output:
+Fibonacci series between 0 and 50:
+[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+
+-------------------------------------------------------------------------------------------------------------------
+
+# 14. Python program to check the validity of password input by users
+
+import re
+
+def is_valid_password(password):
+    
+    if len(password) < 8:
+        return False
+    
+    if not re.search(r'[a-z]', password):
+        return False
+    
+    if not re.search(r'[A-Z]', password):
+        return False
+    
+    if not re.search(r'\d', password):
+        return False
+    
+    if not re.search(r'[!@#$%^&*(),.?"\'{}|<>]', password):
+        return False
+    
+    return True
+
+password = input("Enter your password: ")
+
+if is_valid_password(password):
+    print("Password is valid.")
+else:
+    print("Password is invalid. It must meet the following criteria:")
+    print("- At least 8 characters long")
+    print("- Contains both uppercase and lowercase letters")
+    print("- Contains at least one digit")
+    print("- Contains at least one special character (e.g., @, #, $)")
+
+-----------------------------------
+
+Output:
+Enter your password: password@123
+Password is invalid. It must meet the following criteria:
+- At least 8 characters long
+- Contains both uppercase and lowercase letters
+- Contains at least one digit
+- Contains at least one special character (e.g., @, #, $)
+
+Enter your password: Password@123
+Password is valid.

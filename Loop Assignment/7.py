@@ -1,0 +1,15 @@
+# 7. Write a python program to check whether a number is palindrome or not?
+
+number = int(input("Enter an integer number: "))
+original_number = number
+reversed_number = 0
+
+while number > 0:
+    digit = number % 10  
+    reversed_number = reversed_number * 10 + digit 
+    number = number // 10  
+    
+if original_number == reversed_number:
+    print(f"{original_number} is a palindrome.")
+else:
+    print(f"{original_number} is not a palindrome.")
