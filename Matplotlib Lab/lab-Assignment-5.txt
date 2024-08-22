@@ -71,6 +71,10 @@ plt.title("Distribution of Company Revenue by Business Segment")
 plt.show()
 
 --------------------------------------------------------------------------------------------------------------------------------------------
+#Lab4: Suppose you're a sales manager for an e-commerce company, and you want to 
+#create a figure with subplots to compare the sales performance of different product 
+#categories over time. You have sales data for four product categories: Electronics, 
+#Clothing, Home & Garden, and Sports & Outdoors. Share your conclusion/analysis.
 
 import numpy as np
 import matplotlib.pyplot as plt
