@@ -1,0 +1,165 @@
+# Lab1: Suppose you are a teacher, and you want to analyze the exam scores of your
+# students in a particular subject. You have recorded the scores of your students for a
+# recent exam, and you want to represent this data using a Pandas Series.
+# Input:
+# students = ['Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Frank', 'Grace', 'Hannah', 'Ivy', 'Jack']
+# exam_scores = [92, 88, 76, 94, 82, 90, 85, 89, 78, 91]
+
+import pandas as pd
+
+students = ['Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Frank', 'Grace', 'Hannah', 'Ivy', 'Jack']
+exam_scores = [92, 88, 76, 94, 82, 90, 85, 89, 78, 91]
+
+series=pd.Series(exam_scores,index=students, name= "Exam Scores")
+print(series)
+
+------------------------------------
+
+Output-
+Alice      92
+Bob        88
+Charlie    76
+David      94
+Eve        82
+Frank      90
+Grace      85
+Hannah     89
+Ivy        78
+Jack       91
+Name: Exam Scores, dtype: int64
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Lab2: Suppose you want to track and analyze your household expenses for a month.
+# You have recorded the expenses for various categories, such as groceries, utilities, rent,
+# transportation, and entertainment. You can represent this expense data using a Pandas
+# Series.
+# Input:
+# # Expense categories
+# categories = ['Groceries', 'Utilities', 'Rent', 'Transportation', 'Entertainment']
+# # Monthly expense data (example data in USD)
+# expenses = [500, 200, 1200, 300, 150]
+
+import pandas as pd
+
+categories = ['Groceries', 'Utilities', 'Rent', 'Transportation', 'Entertainment']
+
+expenses = [500, 200, 1200, 300, 150]
+
+series = pd.Series(expenses,index=categories,name= "Monthly expenses(USD)")
+
+print(series)
+
+--------------------------------------
+
+Output-
+Groceries          500
+Utilities          200
+Rent              1200
+Transportation     300
+Entertainment      150
+Name: Monthly expenses(USD), dtype: int64
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+# Lab3: Suppose you want to track and analyze the monthly energy consumption in your
+# home. You have recorded the monthly energy usage for electricity and gas over a year,
+# and you want to represent this data using Pandas Series.
+# Input:
+# # Months in a year
+# months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+# 'September', 'October', 'November', 'December']
+# # Monthly energy consumption data (example data in kilowatt-hours for electricity and
+# therms for gas)
+# electricity_usage = [350, 320, 310, 330, 340, 370, 380, 360, 350, 330, 320, 330]
+# gas_usage = [20, 18, 16, 15, 12, 10, 8, 9, 12, 15, 17, 19]
+
+import pandas as pd 
+
+months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+'September', 'October', 'November', 'December']
+
+electricity_usage = [350, 320, 310, 330, 340, 370, 380, 360, 350, 330, 320, 330]
+gas_usage = [20, 18, 16, 15, 12, 10, 8, 9, 12, 15, 17, 19]
+
+print("Electricity Usage :")
+series = pd.Series(electricity_usage,index=months,name='Electricity Usage(kWh)')
+print(series)
+
+print("\nGas Usage: ")
+series = pd.Series(gas_usage,index=months,name='Gas Usage(therms)')
+print(series)
+
+--------------------------------------
+
+Output-
+Electricity Usage :
+January      350
+February     320
+March        310
+April        330
+May          340
+June         370
+July         380
+August       360
+September    350
+October      330
+November     320
+December     330
+Name: Electricity Usage(kWh), dtype: int64
+
+Gas Usage: 
+January      20
+February     18
+March        16
+April        15
+May          12
+June         10
+July          8
+August        9
+September    12
+October      15
+November     17
+December     19
+Name: Gas Usage(therms), dtype: int64
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Lab4:Suppose you are managing a website and want to analyze the monthly revenue
+# generated from advertising. You have recorded the monthly revenue for the past year,
+# and you want to represent this data using a Pandas Series.
+# Input:
+# # Months in a year
+# months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+# 'September', 'October', 'November', 'December']
+# # Monthly advertising revenue data (example data in USD)
+# revenue = [5000, 5200, 4800, 5400, 5600, 5800, 6100, 5900, 6200, 6500, 7000, 6900]
+
+import pandas as pd
+
+months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+'September', 'October', 'November', 'December']
+
+revenue = [5000, 5200, 4800, 5400, 5600, 5800, 6100, 5900, 6200, 6500, 7000, 6900]
+
+series = pd.Series(revenue,index=months,name='Monthly Advertising Revenue (USD)')
+print(series)
+
+------------------------------------
+
+Output-
+January      5000
+February     5200
+March        4800
+April        5400
+May          5600
+June         5800
+July         6100
+August       5900
+September    6200
+October      6500
+November     7000
+December     6900
+Name: Monthly Advertising Revenue (USD), dtype: int64
+
+--------------------------------------------------------------------------------------------------------------------
