@@ -1,0 +1,219 @@
+# Lab1: Write a Pandas program to split the following data frame into groups based
+# on Class and count the number of students in that particular class.Also generate
+# a bar chart based on the result and explain the conclusion.
+
+import pandas as pd
+
+student_data = pd.DataFrame({
+'school_code': ['s001','s002','s003','s001','s002','s004'],
+'class': ['V', 'VI', 'VI', 'VI', 'V', 'VI'],
+'name': ['Alberto Franco','Gino Mcneill','Ryan Parkes', 'Eesha Hinton', 'Gino Mcneill',
+'David Parkes'],
+'age': [12, 12, 13, 13, 14, 12],
+'height': [173, 192, 186, 167, 151, 159],
+'weight': [35, 32, 33, 30, 31, 32],
+'address': ['street1', 'street2', 'street3', 'street1', 'street2', 'street4']},
+)
+
+print("Original DataFrame:\n",student_data)
+df = student_data
+print("\nClass wise No of student Count:\n",df.value_counts('class'))
+
+df.value_counts('class').plot(kind='bar')
+
+-------------------------------------
+
+Output-
+Original DataFrame:
+   school_code class            name  age  height  weight  address
+0        s001     V  Alberto Franco   12     173      35  street1
+1        s002    VI    Gino Mcneill   12     192      32  street2
+2        s003    VI     Ryan Parkes   13     186      33  street3
+3        s001    VI    Eesha Hinton   13     167      30  street1
+4        s002     V    Gino Mcneill   14     151      31  street2
+5        s004    VI    David Parkes   12     159      32  street4
+
+Class wise No of student Count:
+ class
+VI    4
+V     2
+Name: count, dtype: int64
+
+<Axes: xlabel='class'>
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+# Lab2: Write a Pandas program to split the following dataframe by school
+# code and get mean, min, and max value of age for each school.
+# Also generate a horizontal bar chart based on the result and explain the
+# conclusion.
+
+import pandas as pd
+
+student_data = pd.DataFrame({
+'school_code': ['s001','s002','s003','s001','s002','s004'],
+'class': ['V', 'V', 'VI', 'VI', 'V', 'VI'],
+'name': ['Alberto Franco','Gino Mcneill','Ryan Parkes', 'Eesha Hinton', 'Gino Mcneill',
+'David Parkes'],
+'age': [12, 12, 13, 13, 14, 12],
+'height': [173, 192, 186, 167, 151, 159],
+'weight': [35, 32, 33, 30, 31, 32],
+'address': ['street1', 'street2', 'street3', 'street1', 'street2', 'street4']},
+)
+df = student_data
+print('Original DataFrame:\n',df)
+
+x=(df[['age']].groupby(df['school_code']).agg(['mean', 'min','max']))
+print('\nMean, min, and max value of age for each value of the school:\n',x)
+
+x.plot(kind='barh')
+
+--------------------------------------------
+
+Output-
+Original DataFrame:
+   school_code class            name  age  height  weight  address
+0        s001     V  Alberto Franco   12     173      35  street1
+1        s002     V    Gino Mcneill   12     192      32  street2
+2        s003    VI     Ryan Parkes   13     186      33  street3
+3        s001    VI    Eesha Hinton   13     167      30  street1
+4        s002     V    Gino Mcneill   14     151      31  street2
+5        s004    VI    David Parkes   12     159      32  street4
+
+Mean, min, and max value of age for each value of the school:
+               age        
+             mean min max
+school_code              
+s001         12.5  12  13
+s002         13.0  12  14
+s003         13.0  13  13
+s004         12.0  12  12
+
+<Axes: ylabel='school_code'>
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+# Lab3: Write a Pandas program to split a dataset, group by one column and
+# get mean, min, and max values by group. Using the following dataset find
+# the mean, min, and max values of purchase amount (purch_amt) group by
+# customer id (customer_id).Also generate a line chart based on the result and
+# explain the conclusion.
+
+import pandas as pd
+
+orders_data = pd.DataFrame({
+'ord_no':[70001,70009,70002,70004,70007,70005,70008,70010,70003,70012,70011,70013],
+'purch_amt':[150.5,270.65,65.26,110.5,948.5,2400.6,5760,1983.43,2480.4,250.45,
+75.29,3045.6],
+'ord_date':['2012-10-05','2012-09-10','2012-10-05','2012-08-17','2012-09-10','2012-07-27','2012-09-10',
+'2012-10-10','2012-10-10','2012-06-27','2012-08-17','2012-04-25'],
+'customer_id':[3005,3001,3002,3009,3005,3007,3002,3004,3009,3008,3003,3002],
+'salesman_id': [5002,5005,5001,5003,5002,5001,5001,5006,5003,5002,5007,5001]})
+
+df = orders_data
+print('Original Orders DataFrame:\n',df)
+
+x=(df[['purch_amt']].groupby(df['customer_id']).agg(['mean', 'min','max']))
+print('\nMean, min,and max values of purchase amount(purch_amt) group by customer id (customer_id)\n:',x)
+
+x.plot(kind='bar')
+
+--------------------------------------------
+
+Output-
+Original Orders DataFrame:
+     ord_no  purch_amt    ord_date  customer_id  salesman_id
+0    70001     150.50  2012-10-05         3005         5002
+1    70009     270.65  2012-09-10         3001         5005
+2    70002      65.26  2012-10-05         3002         5001
+3    70004     110.50  2012-08-17         3009         5003
+4    70007     948.50  2012-09-10         3005         5002
+5    70005    2400.60  2012-07-27         3007         5001
+6    70008    5760.00  2012-09-10         3002         5001
+7    70010    1983.43  2012-10-10         3004         5006
+8    70003    2480.40  2012-10-10         3009         5003
+9    70012     250.45  2012-06-27         3008         5002
+10   70011      75.29  2012-08-17         3003         5007
+11   70013    3045.60  2012-04-25         3002         5001
+
+Mean, min,and max values of purchase amount(purch_amt) group by customer id (customer_id)
+:                purch_amt                  
+                    mean      min      max
+customer_id                               
+3001          270.650000   270.65   270.65
+3002         2956.953333    65.26  5760.00
+3003           75.290000    75.29    75.29
+3004         1983.430000  1983.43  1983.43
+3005          549.500000   150.50   948.50
+3007         2400.600000  2400.60  2400.60
+3008          250.450000   250.45   250.45
+3009         1295.450000   110.50  2480.40
+
+<Axes: xlabel='customer_id'>
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+# Lab4: Write a Pandas program to split the following data frame into groups
+# and calculate monthly purchase amount.Also generate a bar chart based on
+# the result and explain the conclusion.
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.DataFrame({
+'ord_no':[70001,70009,70002,70004,70007,70005,70008,70010,70003,70012,70011,70013],
+'purch_amt':[150.5,270.65,65.26,110.5,948.5,2400.6,5760,1983.43,2480.4,250.45,75.29,3045.6],
+'ord_date':['05-10-2012','09-10-2012','05-10-2012','08-17-2012','10-09-2012','07-27-2012',
+'10-09-2012','10-10-2012','10-10-2012','06-17-2012','07-08-2012','04-25-2012'],
+'customer_id':[3001,3001,3005,3001,3005,3001,3005,3001,3005,3001,3005,3005],
+'salesman_id': [5002,5005,5001,5003,5002,5001,5001,5006,5003,5002,5007,5001]})
+
+print("Original Order DataFrame:\n",df)
+
+# Convert 'ord_date' to datetime format
+df['ord_date'] = pd.to_datetime(df['ord_date'], format='%m-%d-%Y')
+
+# Extract month and year from 'ord_date'
+df['month'] = df['ord_date'].dt.to_period('M')
+
+x = df[['purch_amt']].groupby([df['month']]).sum()
+
+print("\nMonth wise purchase amount:\n",x)
+
+x.plot(kind='line')
+plt.xlabel('ord_date')
+
+
+
+--------------------------------------------
+
+Output-
+Original Order DataFrame:
+     ord_no  purch_amt    ord_date  customer_id  salesman_id
+0    70001     150.50  05-10-2012         3001         5002
+1    70009     270.65  09-10-2012         3001         5005
+2    70002      65.26  05-10-2012         3005         5001
+3    70004     110.50  08-17-2012         3001         5003
+4    70007     948.50  10-09-2012         3005         5002
+5    70005    2400.60  07-27-2012         3001         5001
+6    70008    5760.00  10-09-2012         3005         5001
+7    70010    1983.43  10-10-2012         3001         5006
+8    70003    2480.40  10-10-2012         3005         5003
+9    70012     250.45  06-17-2012         3001         5002
+10   70011      75.29  07-08-2012         3005         5007
+11   70013    3045.60  04-25-2012         3005         5001
+
+Month wise purchase amount:
+          purch_amt
+month             
+2012-04    3045.60
+2012-05     215.76
+2012-06     250.45
+2012-07    2475.89
+2012-08     110.50
+2012-09     270.65
+2012-10   11172.33
+
+<Axes: xlabel='ord_date'>
+
+--------------------------------------------------------------------------------------------------------------------------------------------
