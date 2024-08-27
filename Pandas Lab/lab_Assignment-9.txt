@@ -1,0 +1,94 @@
+# Lab1: Write a Pandas program to create a Pivot table and find the total sale
+# amount region wise, manager wise, sales man wise.
+
+import pandas as pd
+df = pd.read_csv("sales_data.csv")
+
+pivot1 = df.pivot_table(values='Sale Amount', index=['Region', 'Manager', 'Salesman'], aggfunc='sum')
+print(pivot1)
+print()
+
+------------------------------------------
+
+Output-
+                         Sale Amount
+Region Manager Salesman
+East   John    Steve            3000
+       Lisa    Nick             6000
+North  John    Mike             4000
+       Lisa    Anna             5000
+South  Lisa    Anna             5000
+               Nick             6000
+West   John    Mike             4000
+               Steve            3000
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+# Lab2: Write a Pandas program to create a Pivot table and find the item wise
+# unit sold.
+
+import pandas as pd
+df = pd.read_csv("sales_data.csv")
+
+pivot2 = df.pivot_table(values='Units Sold', index='Item', aggfunc='sum')
+print(pivot2)
+print()
+
+-----------------------------------
+
+Output-
+      Units Sold
+Item
+Item1         800
+Item2        1000
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+# Lab3: Write a Pandas program to create a Pivot table and find the region
+# wise, item wise unit sold.
+
+import pandas as pd
+df = pd.read_csv("sales_data.csv")
+
+pivot3 = df.pivot_table(values='Units Sold', index=['Region', 'Item'], aggfunc='sum')
+print(pivot3)
+print()
+
+------------------------------------
+
+Output-
+              Units Sold
+Region Item
+East   Item1         150
+       Item2         300
+North  Item1         250
+       Item2         200
+South  Item1         250
+       Item2         300
+West   Item1         150
+       Item2         200
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+# Lab4: Write a Pandas program to create a Pivot table and count the
+# manager wise sale and mean value of sale amount.
+
+import pandas as pd
+df = pd.read_csv("sales_data.csv")
+
+pivot4 = df.pivot_table(values='Sale Amount', index='Manager', aggfunc=['count', 'mean'])
+print(pivot4)
+
+----------------------------------------
+
+Output-
+              count        mean
+        Sale Amount Sale Amount
+Manager
+John              4      3500.0
+Lisa              4      5500.0
+
+
+
+
